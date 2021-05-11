@@ -64,6 +64,6 @@
     "@babel/polyfill": "^7.10.4",
     "@stamp/it": "^1.1.0",
     "@stamp/required": "^1.0.1",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   }
 }
