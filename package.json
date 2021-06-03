@@ -9,8 +9,6 @@
     "README.md"
   ],
   "scripts": {
-    "docs:generate": "npm run docco && npm run test:coverage && cp docs-index.html docs/index.html",
-    "docco": "node ./generate-annotated-src.js",
     "test:clear-cache": "jest --clearCache",
     "test:coverage": "jest --coverage",
     "test": "jest",
@@ -47,7 +45,6 @@
     "@babel/preset-env": "^7.10.4",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.2",
-    "docco": "^0.8.0",
     "eslint": "^7.1.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-babel": "^5.3.1",
