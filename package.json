@@ -1,6 +1,6 @@
 {
   "name": "@zbrckovic/entail-core",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "Construct first-order logic proofs in the system of natural deduction.",
   "main": "lib/index.js",
   "files": [
