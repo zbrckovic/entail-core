@@ -21,6 +21,7 @@ export const Rule = {
   BiconditionalElimination: 'BiconditionalElimination',
 
   Explosion: 'Explosion',
+  Repetition: 'Repetition',
 
   UniversalGeneralization: 'UniversalGeneralization',
   UniversalInstantiation: 'UniversalInstantiation',
@@ -54,6 +55,7 @@ const ruleToAbbreviation = {
   [Rule.BiconditionalElimination]: 'IFF-',
 
   [Rule.Explosion]: 'X',
+  [Rule.Repetition]: 'REP',
 
   [Rule.UniversalInstantiation]: 'A-',
   [Rule.UniversalGeneralization]: 'A+',
@@ -84,6 +86,7 @@ const abbreviationToRule = {
   'IFF-': Rule.BiconditionalElimination,
 
   X: Rule.Explosion,
+  REP: Rule.Repetition,
 
   'A-': Rule.UniversalInstantiation,
   'A+': Rule.UniversalGeneralization,

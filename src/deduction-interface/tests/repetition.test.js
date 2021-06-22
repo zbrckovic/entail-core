@@ -13,15 +13,14 @@ beforeEach(() => {
   })
 })
 
-describe('negation elimination', () => {
-  test('~~p |- p', () => {
-    const premise1 = parser.parse('~~p')
-    const conclusion = parser.parse('p')
+describe('repetition', () => {
+  test('p |- p', () => {
+    const premise = parser.parse('p')
 
     const deduction = Deduction({
       steps: [
         Step({
-          formula: premise1,
+          formula: premise,
           ruleApplicationSummary: RegularRuleApplicationSummary({ rule: Rule.Premise })
         })
       ]
@@ -29,7 +28,7 @@ describe('negation elimination', () => {
 
     const newDeduction = startDeduction(deduction)
       .selectSteps(1)
-      .chooseRule(Rule.NegationElimination)
+      .chooseRule(Rule.Repetition)
       .apply()
       .deduction
 
@@ -37,9 +36,9 @@ describe('negation elimination', () => {
 
     const expected = Step({
       assumptions: new Set([0]),
-      formula: conclusion,
+      formula: premise,
       ruleApplicationSummary: RegularRuleApplicationSummary({
-        rule: Rule.NegationElimination,
+        rule: Rule.Repetition,
         premises: [0]
       })
     })

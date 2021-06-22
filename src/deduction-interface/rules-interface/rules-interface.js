@@ -35,6 +35,7 @@ import {
 import { TautologicalImplicationRuleInterface } from './tautological-implication-rule-interface'
 import { TheoremRuleInterface } from './theorem-rule-interface'
 import { ExplosionRuleInterface } from './explosion-rule-interface'
+import { RepetitionRuleInterface } from './repetition-rule-interface'
 
 // Accepts deduction and selected steps (step indexes), returns interface for choosing rule.
 export const RulesInterface = (deduction, ...steps) => {
@@ -150,6 +151,13 @@ export const RulesInterface = (deduction, ...steps) => {
         affirmativeStepIndex: step1Index,
         negativeStepIndex: step2Index
       })
+    },
+    [Rule.Repetition]: () => {
+      if (steps.length !== 1) return undefined
+
+      const [stepIndex] = steps
+
+      return RepetitionRuleInterface({ deduction, stepIndex })
     },
     [Rule.ConditionalElimination]: () => {
       if (steps.length !== 2) return undefined
