@@ -3,6 +3,7 @@ import { Base } from '../utils'
 import { Rule } from './rule'
 import { RegularRuleApplicationSummary, Step, TheoremRuleApplicationSummary } from './step'
 import { TermDependencyGraph } from './term-dependency-graph'
+import _ from 'lodash'
 
 // Structure containing all relevant information about some deduction (proof) carried out as a
 // sequence of steps.
@@ -18,6 +19,14 @@ export const Deduction = stampit({
     this.termDependencyGraph = termDependencyGraph
   },
   methods: {
+    isFinished () {
+      if (this.getSize() === 0) return false
+
+      const { assumptions } = this.getLastStep()
+
+      return _.isEmpty(assumptions)
+    },
+
     getSize () { return this.steps.length },
 
     // Gets step by its ordinal number. From regular user's perspective steps are referenced by
